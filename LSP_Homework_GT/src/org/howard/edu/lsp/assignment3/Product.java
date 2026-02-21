@@ -5,9 +5,6 @@ import java.math.BigDecimal;
 /**
  * Represents a Product entity used in the ETL pipeline.
  * 
- * A Product object encapsulates all attributes related to a product
- * including its ID, name, price, category, and computed price range.
- * 
  * This class demonstrates encapsulation by keeping fields private
  * and exposing controlled access through public getter and setter methods.
  * 

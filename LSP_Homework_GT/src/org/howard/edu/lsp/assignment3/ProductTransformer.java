@@ -6,12 +6,9 @@ import java.math.RoundingMode;
 /**
  * Handles transformation logic for Product objects in the ETL pipeline.
  *
- * This class is responsible only for applying business rules
- * to a Product instance. It demonstrates separation of concerns
+ * This class demonstrates separation of concerns
  * by isolating transformation logic from file processing logic.
  *
- * All transformations strictly follow the exact requirements
- * defined in Assignment 2 to ensure identical output behavior.
  *
  * @author Gabrielle Taylor
  */
@@ -20,12 +17,6 @@ public class ProductTransformer {
     /**
      * Applies all required transformations to the given Product.
      *
-     * Transformations occur in the following order:
-     * 1. Convert product name to uppercase.
-     * 2. Apply 10% discount if category is "Electronics".
-     * 3. Round price to two decimal places using HALF_UP.
-     * 4. Upgrade category to "Premium Electronics" if applicable.
-     * 5. Assign price range classification.
      *
      * @param product the Product object to transform
      */

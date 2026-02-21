@@ -1,14 +1,9 @@
 package org.howard.edu.lsp.assignment3;
 
 /**
- * Entry point for Assignment 3 ETL Pipeline.
+ * Entry point for ETL Pipeline.
  *
  * This class is responsible only for launching the application.
- * It delegates processing responsibilities to ETLProcessor,
- * demonstrating separation of concerns and modular design.
- *
- * The program preserves identical functionality and file paths
- * from Assignment 2.
  *
  * @author Gabrielle Taylor
  */

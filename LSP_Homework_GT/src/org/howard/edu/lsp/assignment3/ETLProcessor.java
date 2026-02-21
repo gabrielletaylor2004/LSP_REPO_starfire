@@ -6,13 +6,6 @@ import java.math.BigDecimal;
 /**
  * Coordinates the Extract and Load phases of the ETL pipeline.
  *
- * This class is responsible for:
- * - Reading input data from a CSV file
- * - Validating and parsing rows
- * - Delegating transformation logic to ProductTransformer
- * - Writing transformed output to a new CSV file
- * - Handling error cases and reporting summary statistics
- *
  * This design improves modularity compared to Assignment 2
  * by separating file processing from transformation logic.
  *
