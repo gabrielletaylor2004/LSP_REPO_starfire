@@ -1,4 +1,5 @@
 CRC Card
+
 Class: AirTransponder
 
 Responsibilities:
@@ -14,6 +15,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: ATCReceiver
 
 Responsibilities:
@@ -33,6 +35,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: ATCUnpacker
 
 Responsibilities:
@@ -53,6 +56,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: ATCStore
 
 Responsibilities:
@@ -75,6 +79,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: GraphicsDisplay
 
 Responsibilities:
@@ -98,6 +103,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: DangerAnalysis
 
 Responsibilities:
@@ -118,6 +124,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: ATCAlert
 
 Responsibilities:
@@ -137,6 +144,7 @@ Assumptions (if any):
 
 
 CRC Card
+
 Class: ATController
 
 Responsibilities:
