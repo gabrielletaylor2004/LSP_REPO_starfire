@@ -68,9 +68,6 @@ Responsibilities:
 Collaborators (if any):
 
 - ATCUnpacker
-- GraphicsDisplay
-- DangerAnalysis
-- ATController
 
 Assumptions (if any):
 
@@ -108,9 +105,9 @@ Class: DangerAnalysis
 
 Responsibilities:
 
-- Analyzes flight data such as locations and altitudes
+- Analyzes flight data such as locations and altitudes from database
 - Detects potential collisions and/or unsafe altitudes
-- Creates and forwards danger notifications for controller
+- Creates and forwards danger notifications
 
 Collaborators (if any):
 
@@ -130,13 +127,12 @@ Class: ATCAlert
 Responsibilities:
 
 - Receives danger alert notifications
-- Notifies the controller of the alerts
+- Stores or updates danger alerts for aircrafts in the database
 
 Collaborators (if any):
 
--DangerAnalysis
--ATController
--GraphicsDisplay
+- DangerAnalysis
+- ATCStore
 
 Assumptions (if any):
 - N/A
@@ -149,15 +145,11 @@ Class: ATController
 
 Responsibilities:
 
-- Requests aircraft details from the database
-- Displays aircraft details received from database
-- Displays danger alerts
+- Requests aircraft details about any plane from the database
 
 Collaborators (if any):
 
 - ATCStore
-- ATCAlert
-- GraphicsDisplay
 
 Assumptions (if any):
 
