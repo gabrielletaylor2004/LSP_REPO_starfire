@@ -1,4 +1,3 @@
-Link to AI Transcript: https://chatgpt.com/share/69bc8141-6df8-800f-8cea-8b2e2acb9061
 Please brainstorm ideas for how I can approach and answer this question accurately, giving a few illustrations in Java code.
 *uploaded question 1 instructions*
 
@@ -261,3 +260,152 @@ Check your actual code for bugs
 Help you write the Driver test cases
 
 Or convert this into a submission-ready ZIP structure
+
+Below is a complete, submission-ready solution that matches the requirements in your uploaded prompt.  
+Task.java
+package org.howard.edu.lsp.midterm.crccards;
+
+/**
+ * Represents a task in the Task Management System.
+ * A task stores an ID, description, and status.
+ *
+ * Author: Gabrielle Taylor
+ */
+public class Task {
+    private String taskId;
+    private String description;
+    private String status;
+
+    /**
+     * Constructs a Task with the given task ID and description.
+     * The default status is OPEN.
+     *
+     * @param taskId the unique ID of the task
+     * @param description the description of the task
+     */
+    public Task(String taskId, String description) {
+        this.taskId = taskId;
+        this.description = description;
+        this.status = "OPEN";
+    }
+
+    /**
+     * Returns the task ID.
+     *
+     * @return the task ID
+     */
+    public String getTaskId() {
+        return taskId;
+    }
+
+    /**
+     * Returns the task description.
+     *
+     * @return the task description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Returns the task status.
+     *
+     * @return the task status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * Sets the task status.
+     * Valid values are OPEN, IN_PROGRESS, and COMPLETE.
+     * If the status is invalid, it is set to UNKNOWN.
+     *
+     * @param status the new status of the task
+     */
+    public void setStatus(String status) {
+        if ("OPEN".equals(status) || "IN_PROGRESS".equals(status) || "COMPLETE".equals(status)) {
+            this.status = status;
+        } else {
+            this.status = "UNKNOWN";
+        }
+    }
+
+    /**
+     * Returns the task details in the required format:
+     * taskId description [status]
+     *
+     * @return the formatted task string
+     */
+    @Override
+    public String toString() {
+        return taskId + " " + description + " [" + status + "]";
+    }
+}
+
+TaskManager.java
+package org.howard.edu.lsp.midterm.crccards;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Manages a collection of Task objects.
+ * Supports adding tasks, finding tasks by ID, and retrieving tasks by status.
+ *
+ * Author: Gabrielle Taylor
+ */
+public class TaskManager {
+    private Map<String, Task> tasks;
+
+    /**
+     * Constructs an empty TaskManager.
+     */
+    public TaskManager() {
+        this.tasks = new HashMap<>();
+    }
+
+    /**
+     * Adds a task to the manager.
+     * Duplicate task IDs are not allowed.
+     *
+     * @param task the task to add
+     * @throws IllegalArgumentException if a task with the same task ID already exists
+     */
+    public void addTask(Task task) {
+        if (tasks.containsKey(task.getTaskId())) {
+            throw new IllegalArgumentException("Duplicate task ID");
+        }
+        tasks.put(task.getTaskId(), task);
+    }
+
+    /**
+     * Finds a task by its task ID.
+     *
+     * @param taskId the task ID to search for
+     * @return the matching Task if found, otherwise null
+     */
+    public Task findTask(String taskId) {
+        return tasks.get(taskId);
+    }
+
+    /**
+     * Returns all tasks whose status matches the specified value.
+     *
+     * @param status the status to match
+     * @return a list of tasks with the matching status
+     */
+    public List<Task> getTasksByStatus(String status) {
+        List<Task> matchingTasks = new ArrayList<>();
+
+        for (Task task : tasks.values()) {
+            if (task.getStatus().equals(status)) {
+                matchingTasks.add(task);
+            }
+        }
+
+        return matchingTasks;
+    }
+}
