@@ -6,7 +6,7 @@ package org.howard.edu.lsp.midterm.strategy;
  *
  * Author: Gabrielle Taylor
  */
-public class RegularDiscount implements DiscountStrategy {
+public class RegularDiscount extends DiscountStrategy {
 
     /**
      * Returns the original price with no discount.

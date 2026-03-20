@@ -6,7 +6,7 @@ package org.howard.edu.lsp.midterm.strategy;
  *
  * Author: Gabrielle Taylor
  */
-public class HolidayDiscount implements DiscountStrategy {
+public class HolidayDiscount extends DiscountStrategy {
 
     /**
      * Returns the price after a 15 percent discount.

@@ -6,7 +6,7 @@ package org.howard.edu.lsp.midterm.strategy;
  *
  * Author: Gabrielle Taylor
  */
-public interface DiscountStrategy {
+public abstract class DiscountStrategy {
 
     /**
      * Calculates the final price based on the strategy.
@@ -14,5 +14,5 @@ public interface DiscountStrategy {
      * @param price the original purchase price
      * @return the final calculated price
      */
-    double calculatePrice(double price);
+    public abstract double calculatePrice(double price);
 }
