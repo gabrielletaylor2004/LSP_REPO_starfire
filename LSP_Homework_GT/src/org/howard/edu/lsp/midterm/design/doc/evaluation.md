@@ -14,4 +14,4 @@ The class also lacks abstraction. It treats customer information, pricing rules,
 
 From the perspective of object-oriented heuristics, this class has low cohesion and high coupling. Its responsibilities are not closely related, and it depends directly on many external details. Classes should represent a small, well-defined concept, but OrderProcessor behaves like a catch-all class. This kind of design becomes fragile as the system grows because small changes in one requirement can force changes in the same overloaded class.
 
-Ultimately, the design is weak because it combines too many responsibilities, exposes internal data, mixes business logic with input and output details, and makes extension difficult. A stronger design would separate data from behavior, improve encapsulation, and assign each major responsibility to a dedicated class.
+Ultimately, the design is weak because it combines too many responsibilities, exposes internal data, mixes business logic with input and output details, and makes extension difficult. A stronger design would separate data from behaviour, improve encapsulation, and assign each major responsibility to a dedicated class.
