@@ -1,114 +1,90 @@
-CRC Card
-Class: Customer
+## CRC Card 1
+Class: OrderData
 
 Responsibilities:
-- Stores customer information such as name and email
-- Provides controlled access to customer data
-- Represents the customer associated with an order
+- Store order information such as customer name, email, item, and price
+- Provide order details to other classes during processing
+- Represent the core order data in the system
 
 Collaborators:
-- Order
+- None
 
+---
 
-
-CRC Card
-Class: Order
+## CRC Card 2
+Class: TaxCalculator
 
 Responsibilities:
-- Stores order details such as item and price
-- Associates an order with a customer
-- Maintains calculated values such as tax, discount, and final total
-- Represents the core business object in the system
+- Calculate tax for an order
+- Return the tax amount based on the order price
+- Keep tax calculation separate from other processing tasks
 
 Collaborators:
-- Customer
-- PricingService
-- Receipt
+- OrderData
 
+---
 
-
-CRC Card
-Class: PricingService
+## CRC Card 3
+Class: ReceiptPrinter
 
 Responsibilities:
-- Calculates tax for an order
-- Applies discount rules when appropriate
-- Computes the final total in the correct order
-- Centralizes pricing-related business logic
+- Print the order receipt
+- Display customer and order details
+- Show tax, discount, and final total on the receipt
 
 Collaborators:
-- Order
+- OrderData
+- TaxCalculator
+- DiscountCalculator
 
+---
 
-
-CRC Cards
-Class: Receipt
+## CRC Card 4
+Class: FileSaver
 
 Responsibilities:
-- Formats receipt information for display
-- Represents a summary of the processed order
-- Provides clean output of customer, item, tax, discount, and total information
+- Save order information to a file
+- Write processed order details in persistent storage
+- Keep file handling separate from business logic
 
 Collaborators:
-- Order
+- OrderData
 
+---
 
-
-CRC Card
-Class: OrderRepository
+## CRC Card 5
+Class: EmailSender
 
 Responsibilities:
-- Saves processed order information
-- Handles persistence details such as writing to a file or database
-- Isolates storage behaviour from business logic
+- Send a confirmation email to the customer
+- Use order details to generate the confirmation message
+- Keep email functionality separate from order processing logic
 
 Collaborators:
-- Order
+- OrderData
 
+---
 
-
-CRC Card
-Class: EmailService
-
-Responsibilities:
-- Sends order confirmation messages to customers
-- Uses customer contact information without storing business logic
-- Keeps notification behaviour separate from order calculation
-
-Collaborators (if any):
-- Customer
-- Order
-
-
-
-CRC Cards
-Class: LoggerService
+## CRC Card 6
+Class: DiscountCalculator
 
 Responsibilities:
-- Records the time and status of order processing
-- Centralizes logging behavior
-- Supports future changes to logging format or destination
+- Apply discount rules to an order
+- Determine whether a discount should be applied
+- Return the updated total after discount calculation
 
 Collaborators:
-- OrderProcessingService
+- OrderData
 
+---
 
-
-CRC Cards
-Class: OrderProcessingService
+## CRC Card 7
+Class: ActivityLogger
 
 Responsibilities:
-- Coordinates the steps of processing an order
-- Requests pricing calculations
-- Generates a receipt
-- Saves the processed order
-- Triggers confirmation email sending
-- Triggers logging after processing is complete
+- Log order processing activity
+- Record when an order has been processed
+- Keep logging separate from order and pricing logic
 
 Collaborators:
-- Order
-- PricingService
-- Receipt
-- OrderRepository
-- EmailService
-- LoggerService
+- OrderData
