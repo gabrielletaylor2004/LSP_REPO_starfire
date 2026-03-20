@@ -358,3 +358,129 @@ Think of your design like a **team of specialists instead of one overworked empl
 ---
 
 If you want, I can generate a **complete `design.md` with polished CRC cards** that would score near full points.
+
+# Proposed Improved Design Using CRC Cards
+
+## CRC Card 1
+Class: Customer
+
+Responsibilities:
+- Store customer information such as name and email
+- Provide customer details needed for order processing
+- Represent the customer associated with an order
+
+Collaborators:
+- Order
+- EmailService
+
+---
+
+## CRC Card 2
+Class: Order
+
+Responsibilities:
+- Store order details such as item and base price
+- Associate an order with a customer
+- Store calculated values such as tax, discount, and final total
+
+Collaborators:
+- Customer
+- PricingService
+- Receipt
+- OrderRepository
+- EmailService
+
+---
+
+## CRC Card 3
+Class: PricingService
+
+Responsibilities:
+- Calculate tax for an order
+- Apply discount rules when appropriate
+- Compute the final total in the correct order
+
+Collaborators:
+- Order
+- OrderProcessingService
+
+---
+
+## CRC Card 4
+Class: Receipt
+
+Responsibilities:
+- Format processed order information for output
+- Present customer, item, pricing, and total details
+- Represent a summary of the completed order
+
+Collaborators:
+- Order
+- OrderProcessingService
+
+---
+
+## CRC Card 5
+Class: OrderRepository
+
+Responsibilities:
+- Save processed order data
+- Isolate storage logic from business logic
+- Support future changes in storage format or destination
+
+Collaborators:
+- Order
+- OrderProcessingService
+
+---
+
+## CRC Card 6
+Class: EmailService
+
+Responsibilities:
+- Send order confirmation messages to customers
+- Use customer and order information to build confirmations
+- Keep notification behavior separate from processing logic
+
+Collaborators:
+- Customer
+- Order
+- OrderProcessingService
+
+---
+
+## CRC Card 7
+Class: LoggerService
+
+Responsibilities:
+- Record order processing activity
+- Store or display logging information
+- Keep logging behavior separate from business logic
+
+Collaborators:
+- Order
+- OrderProcessingService
+
+---
+
+## CRC Card 8
+Class: OrderProcessingService
+
+Responsibilities:
+- Coordinate the steps required to process an order
+- Delegate pricing, receipt generation, storage, email, and logging tasks
+- Ensure order processing occurs in the correct sequence
+
+Collaborators:
+- Order
+- PricingService
+- Receipt
+- OrderRepository
+- EmailService
+- LoggerService
+
+---
+
+# Summary of Improved Design
+
+This revised design improves the original `OrderProcessor` by separating major responsibilities into focused classes with clear collaborator relationships. `Customer` and `Order` model the core domain data. `PricingService` handles tax and discount rules. `Receipt` formats order output. `OrderRepository` manages storage, `EmailService` manages confirmations, and `LoggerService` handles logging. `OrderProcessingService` acts as the coordinator and delegates work to the appropriate components. This design improves cohesion, reduces coupling, strengthens encapsulation, and makes the system easier to maintain and extend.
