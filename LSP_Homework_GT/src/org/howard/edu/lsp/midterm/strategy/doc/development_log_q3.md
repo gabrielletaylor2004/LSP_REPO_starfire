@@ -267,5 +267,3 @@ Javadoc is included → fulfills the 2-point documentation requirement.
 If you want, I can also sketch the recommended folder/package structure for all files so that it exactly matches your assignment requirements. This makes grading seamless.
 
 Do you want me to do that?
-
-FULL AI TRANSCRIPT: https://chatgpt.com/share/69bc93c1-32e8-8007-b790-c195ac05e5e5
