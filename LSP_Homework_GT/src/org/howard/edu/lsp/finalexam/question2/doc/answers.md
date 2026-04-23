@@ -1,0 +1,3 @@
+Design Explanation:
+
+The Template Method pattern is used in the abstract `Report` class. The `generateReport()` method defines the fixed workflow: `loadData()`, `formatHeader()`, `formatBody()`, and `formatFooter()`. The subclasses `StudentReport` and `CourseReport` provide their own implementations of the variable steps. The driver uses a `List<Report>` and calls `generateReport()` on each object, demonstrating polymorphism.
