@@ -1,11 +1,11 @@
 Part 1:
-Shared Resource #1: nextId
+Shared Resource #1: nextId (shared mutable state)
 
-Shared Resource #2: requests
+Shared Resource #2: requests (shared mutable state)
 
-Concurrency Problem: Multiple threads may access and modify shared resources simultaneously, leading to duplicate IDs or inconsistent request data.
+Concurrency Problem: Race condition due to shared mutable state. Multiple threads may access and modify shared resources simultaneously, leading to duplicate IDs or inconsistent request data.
 
-Why addRequest() is unsafe: addRequest() calls getNextId() and then adds to requests without synchronization. Multiple threads can interleave execution, causing duplicate IDs (two threads read same nextId before increment), and/or lost updates or inconsistent list state. The method is not atomic; ID generation + insertion is not protected as a single operation.
+Why addRequest() is unsafe: addRequest() calls getNextId() and then adds to requests without synchronization. Multiple threads can interleave execution of getNextId() and requests.add(). This creates a race condition, causing duplicate IDs (two threads read same nextId before increment), and/or lost updates or inconsistent list state. The method is not atomic; ID generation + insertion is not protected as a single operation.
 
 Part 2:
 
@@ -22,7 +22,9 @@ Part 3:
 Part 4:
 Description: An alternative approach to managing concurrency that does not rely on the synchronized keyword is the use of atomic variables (e.g., AtomicInteger) instead of synchronized. AtomicInteger provides lock-free, thread-safe operations. It ensures that ID incrementation is atomic without blocking threads. It also combines with a thread-safe collection (e.g., Collections.synchronizedList or CopyOnWriteArrayList) to protect the shared list.
 
+
 Code Snippet:
+
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
