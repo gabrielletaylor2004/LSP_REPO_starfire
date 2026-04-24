@@ -1,5 +1,3 @@
-# AI Usage
-
 AI Tools Used:
 ChatGPT
 
